@@ -12,9 +12,14 @@ cipher-block chaining, needed to properly encrypt larger payloads.  For this
 reason, this library should not be used for general encryption applications.
 
 The library includes two additional functions used to lightly encrypt customer
-IDs into 8-byte sequences, including a simple checksum.  These functions allow
-you to quickly encode customer IDs into opaque sequences that are checksum'd
-and won't leak information such as the number of subscribers.
+IDs and other 32-bit values into 8-byte sequences, including a simple
+checksum.  These functions allow you to quickly encode integer values into
+opaque sequences that are checksum'd and won't leak information such as the
+number of subscribers.
+
+The library was developed so that we could guarantee the use of the exact
+same implementation of the xtea encryption algorithm with both C++ and
+Python code.
 
 Note that the `inecrypto <https://github.com/inesonic/inecrypto>` library
 provides another implementation of the XTEA encryptor that can support
